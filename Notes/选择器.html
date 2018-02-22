@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器</title>
+
+    <!-- 一个标签可以被多个 CSS 选择器选择，共同作用 -->
+    <!-- CSS 写在 head 标签里面，容器 style 标签。先写选择器，再写大括号，大括号里面是样式 -->
+    <style class="type">
+        body{
+            background-color: pink;
+        }
+        /* 所有标签，都可以是选择器
+           无论这个标签藏得多深，一定能被选择上
+           选择的是所有，而不是一个
+           标签选择器，是页面上所有这种类型的标签，所以经常描述“共性”，而无法描述某一个元素的“个性”的 
+        */
+        span {
+            color: red;
+        }
+
+        ul {
+            background-color: green;
+            width: 200px;
+        }
+
+        li {
+            background-color: goldenrod;
+            width: 150px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        /* 
+            任何的 HTML 标签，都可以有 ID 属性，表示这个标签的名字，这个标签的名字可任取，但是：
+            1、只能有字母、数字、下划线
+            2、必须以字母开头
+            3、不能和标签同名，比如 ID 不能叫做 body、img、a 等
+            4、大小写区分
+            一个 HTML 页面中，不能出现相同的 ID，哪怕他们不是一个类型
+            比如：一个页面有一个 ID 为 pp 的 p，一个 ID 为 pp 的 div，是非法的！
+            # 是 id 的选择符
+         */
+
+         /* 面试题：
+            如果选择器冲突了，比如 id 选择器设置文字为红色，标签选择器设置文字为绿色，那么听谁的？
+            实际上，CSS 有着非常严格的计算公式，能够处理冲突
+          */
+        #hh {
+            color:rgb(77, 44, 226);
+        }
+        /* 
+            类选择器
+            . 是类的选择符
+            类和 id 非常相似，任何标签都可以携带 class 属性
+            class 属性可以重复，比如页面上可能有很多标签都有 test1 这个类
+            同一个标签，可能同时属于多个类，用空格隔开: <h2 class="test2 test1">啊啊啊啊啊啊啊</h2>,这样，这个 h2 标签就同时属于 test2 和 test1 类
+            总结：
+            1、同一个页面上可能有多个标签同时属于某一个类
+            2、同一个标签可以同时携带多个类
+            3、不要试图用一个类名，把某个标签的所有样式写完，这个标签要多携带几个类，共同造成这个标签的样式。
+            4、每一个类尽可能小，有“公共”的概念，能够让更多的标签去使用
+         */
+
+         /* 类上样式，id上行为，一般 id 是 js 调用 */
+
+         .test1 {
+             color: orangered;
+             
+         }
+
+        .test2 {
+            text-decoration: underline;
+        }
+
+        .textColor {
+            color: rgb(252, 252, 252);
+        }
+
+        .textFont {
+            font-size: 30px;
+        }
+
+        .textUnderline {
+            text-decoration: underline;
+        }
+
+
+        /* 
+            后代选择器 
+            空格就表示后代
+            .div1 p 表示 .div1 的后代所有的 p
+            强调：选择的是后代，不一定是儿子,选择的是 div1 中的 p
+            空格可以多次出现
+        */
+        .div1 p {
+            color: blanchedalmond;
+        }
+
+        .div2 .li2 p {
+            background-color: cadetblue;
+        }
+
+        .div2 li p {
+            font-size: 12px;
+        }
+
+        /* 
+            交集选择器 
+            选择的元素是同时满足两个条件，如下：必须是 h3 并且是 special 类
+            注意：没有空格
+            可以连续进行交集
+            这个写法是 IE7 开始兼容的
+            Windows XP -- IE6
+            Windows vista -- IE7
+            Windows 7 -- IE8
+            Windows 8 -- IE9
+            Windows10 -- edge
+            所以浏览器兼容问题，基本上在 IE6、7身上
+        */
+        h3.special.textUnderline {
+            color: cadetblue;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- 标签的例子 -->
+    <h1>标签的例子</h1>
+    <h2>hhhhhhhhhhh<span>aaaa</span>xxxx</h2>
+
+    <ul>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+        <li>哈哈哈哈</li>
+    </ul>
+
+    <!-- id 的例子 -->
+    <h1>id 的例子</h1>
+    <p>lllllllllllllll</p>
+    <p id="hh">hhhhhhhhhhhhhhh</p>
+    <p>000000000000000</p>
+
+    <!-- 类的例子 -->
+    <h1>类的例子</h1>
+    <h2>啊啊啊啊啊啊啊</h2>
+    <h2 class="test1">啊啊啊啊啊啊啊</h2>
+    <h2 class="test2 test1">啊啊啊啊啊啊啊</h2>
+    <p>哈哈哈哈哈哈哈哈</p>
+    <p class="test1">哈哈哈哈哈哈哈哈</p>
+    <p>哈哈哈哈哈哈哈哈</p>
+
+
+    <p class="textColor textFont">段落1</p>
+    <p class="textColor textUnderline" id="roll">段落2</p>
+    <p class="textFont textUnderline">段落3</p>
+
+
+     <!-- js 代码 -->
+     <!-- <script type="text/javascript">
+        var box = document.getElementById("roll");
+        var a = 0
+        setInterval(function() {
+            a++;
+            box.style.marginLeft = a + "px";
+        },10)
+    </script> -->
+
+
+    <!-- 后代选择器 -->
+    <h1>后代选择器</h1>
+    <div class="div1">
+        <p>段落</p>
+        <p>段落</p>
+        <p>段落</p>
+    </div>
+
+    <div class="div2">
+        <ul>
+            <li>
+                <p>段落</p>
+                <p>段落</p>
+                <p>段落</p>
+            </li>
+            <li class="li2">
+                <p>段落</p>
+                <p>段落</p>
+                <p>段落</p>
+            </li>
+            <li>
+                <p>段落</p>
+                <p>段落</p>
+                <p>段落</p>
+            </li>
+            <li>
+                <p>段落</p>
+                <p>段落</p>
+                <p>段落</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 交集选择器 -->
+    <h1>交集选择器</h1>
+    <h3>我是标题</h3>
+    <h3 class="special textUnderline">我是标题</h3>
+    <h3 class="special">我是标题</h3>
+    <p class="special">我是段落</p>
+    <p>我是段落</p>
+</body>
+</html>
