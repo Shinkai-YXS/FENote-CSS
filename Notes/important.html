@@ -1,0 +1,68 @@
+<!-- 
+    important 提升的是一个属性，不是一个选择器
+    important 无法提升一个继承属性，该是 0 还是 0
+    一般不使用 important，只是作为一个知识点了解一下。
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>important</title>
+    <style type="text/css">
+        #para1 {
+            color: orange;
+        }
+
+        /* 
+            important: 给属性提高权重
+            用法：k:v !important;
+         */
+
+        .spec {
+            color: olivedrab !important;
+        }
+
+        p {
+            color: olive;
+        }
+
+        /* 
+            由于 div 是通过继承性来影响文字颜色的，所以 !important 无法提升权重，因为 p 标签是实实在在选中的 
+            important 不影响就近原则，原因如下：
+            div 没有作用于内层标签，没有选择文字所在标签，是通过继承性来影响文字，所以权重是0，而 important 无法提升权重为 0 的东西，所以就近原则没有被打破。
+        */
+
+        div {
+            color: orchid !important;
+        }
+        
+        ul {
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="para1" class="spec">啦啦啦啦啦啦啦啦啦啦啦</p>
+
+    <div>
+        <p>哈哈哈哈</p>
+    </div>
+
+    <div>
+        <div>
+            <div>
+                <div>
+                    <ul>
+                        <li>哈哈哈哈</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!-- 
+    一个盒子中主要的属性：
+    width、height、padding、border、margin
+     宽度    高度    内边距    边框   外边框
+
+     若想保持一个盒子占有宽度不变，那么加 width 就要减 padding，加 padding 就要减 width
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒模型</title>
+    <style type="text/css">
+        /* 
+            在做项目中，便于控制，会清除默认的 padding
+            * 的效率并不高，所以选择并集选择器，罗列所有的标签
+         */
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
+            margin: 0px;
+            padding: 0px;
+        }
+        /* 无 padding，有宽高 */
+        .box1 {
+            width: 100px;
+            height: 100px;
+            /* 
+                border 是一个大综合属性
+                border 三要素：宽度，线型，颜色
+                线型：dotted,dashed,solid,double,groove,ridge,inset,outset
+                其中，颜色不写默认为黑色，其余任意两个都要写，不然就显示不出来。
+            */
+            border: 2px dashed rosybrown;
+        }
+        /* 有宽高，有padding */
+        .box2 {
+            width: 50px;
+            height: 50px;
+            border: 2px solid pink;
+            padding: 25px;
+        }
+        /* 无宽高，有padding, padding 区域有颜色，background-color 填充 border 之内的部分 */
+        .box3 {
+            width: 0px;
+            height: 0px;
+            border: 2px dotted green;
+            padding: 50px;
+            background-color: goldenrod;
+        }
+        /* padding是四个方向的，可以分别设置，这是小属性设置 */
+        /* border 按要素 */
+        .box4 {
+            width: 100px;
+            height: 100px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            padding-left: 40px;
+            padding-right: 50px;
+            background-color: gold;
+            border-width: 10px 2px 4px 6px;
+            border-style: double dotted solid groove;
+            border-color: green gray black red;
+        }
+        /*
+            综合属性设置：上右下左 
+            若只有三个值：padding: 30px 20px 40px 则为上右下左，左右相等，都为20px
+            若只有两个值：padding: 30px 20px 则为上右下左，上下相等，都为30px，左右相等，都为20px
+        */
+        /* border 按方向 */
+        .box5 {
+            width: 100px;
+            height: 100px;
+            padding: 30px 20px 40px 100px;
+            background-color: rgb(124, 117, 75);
+            border-top: 10px groove rgb(243, 246, 74);
+            border-left: 20px inset black;
+            border-right: 20px outset green;
+            border-bottom: 10px ridge red;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>    
+    <div class="box4">哈哈哈哈哈哈或哈哈哈哈哈哈哈哈哈哈哈哈或哈哈哈哈</div>
+    <div class="box5">哈哈哈哈哈哈或哈哈哈哈哈哈哈哈哈哈哈哈或哈哈哈哈</div>
+
+    <!-- 无序列表默认带有padding -->
+    <ul>
+        <li>哈哈哈哈哈哈哈哈</li>
+        <li>哈哈哈哈哈哈哈哈</li>
+        <li>哈哈哈哈哈哈哈哈</li>
+        <li>哈哈哈哈哈哈哈哈</li>
+        <li>哈哈哈哈哈哈哈哈</li>
+        <li>哈哈哈哈哈哈哈哈</li>
+    </ul>
+</body>
+</html>

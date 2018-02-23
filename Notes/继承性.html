@@ -1,3 +1,6 @@
+<!-- 有一些属性，当给自己设置的时候，自己的后代都继承身上了，这个就是继承性 -->
+<!-- 以 color、text-、line-、font- 这些关于文字样式的都能够继承，所有关于盒子的、定位的、布局的属性都不能继承 -->
+<!-- 继承性是从大贯穿到最小的元素 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>继承性</title>
+    <style type="text/css">
+        body {
+            background-color: burlywood;
+        }
+        div {
+            color: indianred;
+            border: 1px solid gold;
+            text-align: center;
+            font-size: 20px;
+        }
+        
+        ul {
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <div>
+        <p>我是段落</p>
+        <p>我是段落</p>
+        <p>我是段落</p>
+        <ul>
+            <li>我是无序列表</li>
+            <li>我是无序列表</li>
+            <li>我是无序列表</li>
+            <li>我是无序列表</li>
+        </ul>
+    </div>
 </body>
 </html>
