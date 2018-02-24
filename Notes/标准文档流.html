@@ -1,0 +1,88 @@
+<!-- 
+    宏观的讲，web 页面和 Photoshop 等设计软件有本质的区别
+    web 页面的制作，必须从上而下。而设计软件，想往哪里画就在哪里画。
+
+    在 HTML 中，标签分为文本级、容器级。
+    文本级：p、span、a、b、i、u、em
+    容器及：div、h系列、li、dt、dd
+
+    所有文本级标签都是行内元素，除了 p，p 是个文本级，但是是个块级元素。
+    所有容器级标签都是块级元素。
+
+    标准流等级森严
+    1、块级元素
+    2、行内元素
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标准文档流</title>
+    <style type="text/css">
+        img {
+            width: 200px;
+        }
+
+        span {
+            font-size: 50px;
+        }
+
+        h1 {
+            background-color: pink;
+            width: 300px;
+            height: 100px;
+        }
+
+        span {
+            background-color: pink;
+            width: 400px;
+            height: 500px;
+        }
+
+        a {
+            /* 行内元素变为块级元素 */
+            display: block;
+            /* 文本居中 */
+            text-align: center;
+            /* 垂直居中 */
+            line-height: 100px;
+            width: 300px;
+            height: 100px;
+            background: powderblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 标准流的微观现象 -->
+    <!-- 一、若想让 img 标签之间没有空隙，必须紧密连接： -->
+    <img src="images/1.jpeg" /><img src="images/2.jpeg" /><img src="images/3.jpeg" /><img src="images/4.jpeg" /><img src="images/5.jpeg" />
+    <!-- 二、高矮不齐，底边对其性质 -->
+    <p>
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈<span>呵呵</span>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        <img src="images/6.jpeg" />
+    </p>
+    
+    <!-- 
+        块级元素 
+        霸占一行，不能与其他任何元素并列
+        能接受宽、高
+        如果不设置宽度，那么宽度将默认变为页面的宽度
+    -->
+    <h1>哈哈哈哈哈哈哈</h1>
+    <h1>呵呵呵呵呵呵呵</h1>
+
+    <!-- 
+        行内元素
+        与其他行内元素并排
+        不能设置宽、高
+        默认宽、高为文字的宽、高
+    -->
+    <span>哈哈哈哈</span>
+    <span>呵呵呵呵</span>
+
+    <!-- 行内变为块 -->
+    <a href="http://www.baidu.com" target="_black">点击我去百度</a>
+</body>
+</html>

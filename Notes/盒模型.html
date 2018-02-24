@@ -7,6 +7,7 @@
  -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +18,38 @@
             在做项目中，便于控制，会清除默认的 padding
             * 的效率并不高，所以选择并集选择器，罗列所有的标签
          */
-        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
+
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td {
             margin: 0px;
             padding: 0px;
         }
+
         /* 无 padding，有宽高 */
+
         .box1 {
             width: 100px;
             height: 100px;
@@ -33,14 +61,18 @@
             */
             border: 2px dashed rosybrown;
         }
+
         /* 有宽高，有padding */
+
         .box2 {
             width: 50px;
             height: 50px;
             border: 2px solid pink;
             padding: 25px;
         }
+
         /* 无宽高，有padding, padding 区域有颜色，background-color 填充 border 之内的部分 */
+
         .box3 {
             width: 0px;
             height: 0px;
@@ -48,8 +80,11 @@
             padding: 50px;
             background-color: goldenrod;
         }
+
         /* padding是四个方向的，可以分别设置，这是小属性设置 */
+
         /* border 按要素 */
+
         .box4 {
             width: 100px;
             height: 100px;
@@ -62,12 +97,15 @@
             border-style: double dotted solid groove;
             border-color: green gray black red;
         }
+
         /*
             综合属性设置：上右下左 
             若只有三个值：padding: 30px 20px 40px 则为上右下左，左右相等，都为20px
             若只有两个值：padding: 30px 20px 则为上右下左，上下相等，都为30px，左右相等，都为20px
         */
+
         /* border 按方向 */
+
         .box5 {
             width: 100px;
             height: 100px;
@@ -79,15 +117,29 @@
             border-bottom: 10px ridge red;
         }
 
-        
+        .box6 {
+            width: 0px;
+            height: 0px;
+            border: 30px solid white;
+            border-top-color: palevioletred;
+            margin: 10px;
+            transition: all 1s ease 0s;
+        }
+
+        div:hover {
+            transform: rotate(360deg);
+        }
     </style>
 </head>
+
 <body>
     <div class="box1"></div>
     <div class="box2"></div>
-    <div class="box3"></div>    
+    <div class="box3"></div>
     <div class="box4">哈哈哈哈哈哈或哈哈哈哈哈哈哈哈哈哈哈哈或哈哈哈哈</div>
     <div class="box5">哈哈哈哈哈哈或哈哈哈哈哈哈哈哈哈哈哈哈或哈哈哈哈</div>
+
+    <div class="box6"></div>
 
     <!-- 无序列表默认带有padding -->
     <ul>
@@ -99,4 +151,5 @@
         <li>哈哈哈哈哈哈哈哈</li>
     </ul>
 </body>
+
 </html>

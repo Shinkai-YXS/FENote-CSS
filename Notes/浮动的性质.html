@@ -1,0 +1,166 @@
+<!-- 
+    浮动是 CSS 里布局用的最多的属性
+    
+    浮动三特性
+    1、浮动的元素脱标（脱离标准文档流）
+    2、浮动元素互相贴靠
+    3、浮动元素字围效果
+
+    注意：
+    浮动永远不是一个元素单独浮动，都是一起浮动。（字围效果除外）
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浮动的性质</title>
+    <style type="text/css">
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td {
+            margin: 0px;
+            padding: 0px;
+        }
+        /* 
+            浮动的元素脱标
+            .box1 脱离了标准文档流，所以 .box2 就是现在标准文档流中的第一个元素，所以就渲染在了页面的左上方。
+        */
+
+        .box1 {
+            /* 设置浮动 */
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: palegreen;
+        }
+
+        .box2 {
+            width: 150px;
+            height: 150px;
+            background-color: salmon;
+        }
+
+        /*
+            浮动的元素不需要转成块级元素，就能设置宽高。 
+            所以，浮动的元素，不区分行内和块级了。
+            也就是说，一个元素浮动了，那么就能够并拍了，并且能够设置宽、高了，无论它原来是块级元素还是行内元素。
+        */
+
+        .tuobiao {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        /*
+            浮动元素互相贴靠 
+        */
+
+        .tiekao1 {
+            float: right;
+            width: 100px;
+            height: 400px;
+            background-color: sienna;
+        }
+
+        .tiekao2 {
+            float: right;
+            width: 200px;
+            height: 420px;
+            background-color: rgb(255, 238, 2);
+        }
+
+        .tiekao3 {
+            float: right;
+            width: 150px;
+            height: 350px;
+            background-color: rgb(0, 255, 242);
+        }
+
+        /* 
+            浮动元素字围效果 
+            能挡住盒子，但是挡不住盒子里的字
+        */
+        .ziwei {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: slateblue;
+        }
+
+        /* 父子盒模型浮动效果 */
+
+        .childs {
+            width: 400px;
+            height: 400px;
+            background-color: thistle;
+        }
+
+        .para1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color:yellowgreen;
+        }
+
+        .para2 {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: papayawhip;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <span class="tuobiao">我是 span</span>
+    <span class="tuobiao">我是 span</span>
+    <span class="tuobiao">我是 span</span>
+    <span class="tuobiao">我是 span</span>
+    <span class="tuobiao">我是 span</span>
+
+
+
+    <div class="tiekao1"></div>
+    <div class="tiekao2"></div>
+    <div class="tiekao3"></div>
+
+    <div class="ziwei"></div>
+    <p>123文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字V</p>
+
+    <div class="childs">
+        <p class="para1">1</p>
+        <p class="para2">2</p>
+    </div>
+</body>
+
+</html>
